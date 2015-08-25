@@ -1,4 +1,4 @@
-Function DiskInfo {
+Function DiskInfo($strComputer) {
 $colItems = Get-WmiObject Win32_DiskDrive -Namespace “root\CIMV2" -ComputerName $strComputer
   foreach($objItem in $colItems) {
   Write-Host “Disk:” $objItem.DeviceID
