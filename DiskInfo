@@ -1,0 +1,9 @@
+Function DiskInfo {
+$colItems = Get-WmiObject Win32_DiskDrive -Namespace “root\CIMV2" -ComputerName $strComputer
+  foreach($objItem in $colItems) {
+  Write-Host “Disk:” $objItem.DeviceID
+  Write-Host “Size:” $objItem.Size “bytes”
+  Write-Host “Drive Type:” $objItem.InterfaceType
+  Write-Host “Media Type: ” $objItem.MediaType
+  }
+}
