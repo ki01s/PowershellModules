@@ -1,0 +1,9 @@
+Function BIOSInfo {
+ $colItems = Get-WmiObject Win32_BIOS -Namespace “root\CIMV2" -computername $strComputer
+ foreach($objItem in $colItems) {
+ Write-Host “BIOS:”$objItem.Description
+ Write-Host “Version:”$objItem.SMBIOSBIOSVersion”.”`
+ $objItem.SMBIOSMajorVersion”.”$objItem.SMBIOSMinorVersion
+ Write-Host “Serial Number:” $objItem.SerialNumber
+ }
+}
