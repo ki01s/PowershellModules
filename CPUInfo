@@ -1,0 +1,6 @@
+Function CPUInfo {
+ $colItems = Get-WmiObject Win32_Processor -Namespace “root\CIMV2" -Computername $strComputer
+ foreach($objItem in $colItems) {
+  Write-Host “Processor:” $objItem.DeviceID $objItem.Name
+  }
+}
