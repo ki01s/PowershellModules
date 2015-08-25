@@ -1,0 +1,10 @@
+Function NetworkInfo {
+$colItems = Get-WmiObject Win32_NetworkAdapterConfiguration -Namespace “root\CIMV2" -ComputerName $strComputer | where{$_.IPEnabled -eq “True”}
+foreach($objItem in $colItems) {
+ Write-Host “DHCP Enabled:” $objItem.DHCPEnabled
+ Write-Host “IP Address:” $objItem.IPAddress
+ Write-Host “Subnet Mask:” $objItem.IPSubnet
+ Write-Host “Gateway:” $objItem.DefaultIPGateway
+ Write-Host “MAC Address:” $ojbItem.MACAddress
+ }
+}
