@@ -1,0 +1,6 @@
+Function OSInfo($strComputer) {
+$colItems = Get-WmiObject Win32_OperatingSystem -Namespace “root\CIMV2" -Computername $strComputer
+ foreach($objItem in $colItems) {
+  Write-Host “Operating System:” $objItem.Name
+  }
+}
